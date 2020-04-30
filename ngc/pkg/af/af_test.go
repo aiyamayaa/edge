@@ -84,7 +84,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/subscriptions",
+					"http://localhost:8181/af/v1/subscriptions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -105,7 +105,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/subscriptions",
+					"http://localhost:8181/af/v1/subscriptions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -128,7 +128,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/subscriptions",
+					"http://localhost:8181/af/v1/subscriptions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -150,7 +150,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request with subID")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/subscriptions/1000",
+					"http://localhost:8181/af/v1/subscriptions/1000",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -173,7 +173,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request with subID")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/subscriptions",
+					"http://localhost:8181/af/v1/subscriptions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -196,7 +196,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request with subID")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/subscriptions",
+					"http://localhost:8181/af/v1/subscriptions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -237,7 +237,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/subscriptions",
+					"http://localhost:8181/af/v1/subscriptions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -251,7 +251,7 @@ var _ = Describe("AF", func() {
 				resBodyBytes := bytes.NewReader(resBody)
 				header := make(http.Header)
 				header.Set("Location",
-					"http://localhost:8080/af/v1/")
+					"http://localhost:8181/af/v1/")
 				httpclient :=
 					testingAFClient(func(req *http.Request) *http.Response {
 						// Test request parameters
@@ -282,7 +282,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request with subID")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/subscriptions",
+					"http://localhost:8181/af/v1/subscriptions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -302,7 +302,7 @@ var _ = Describe("AF", func() {
 			Specify("Read all subscriptions", func() {
 
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/subscriptions",
+					"http://localhost:8181/af/v1/subscriptions",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -317,7 +317,7 @@ var _ = Describe("AF", func() {
 			Specify("Read all subscriptions", func() {
 				By("sending wrong url")
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v2/subscriptions",
+					"http://localhost:8181/af/v2/subscriptions",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -333,7 +333,7 @@ var _ = Describe("AF", func() {
 			Specify("Read all Subscriptions - 400", func() {
 
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/subscriptions",
+					"http://localhost:8181/af/v1/subscriptions",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -370,7 +370,7 @@ var _ = Describe("AF", func() {
 		Context("Subscription ID GET", func() {
 			Specify("VALID SUB-ID", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/subscriptions/11112",
+					"http://localhost:8181/af/v1/subscriptions/11112",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -385,7 +385,7 @@ var _ = Describe("AF", func() {
 
 			Specify("INVALID SUB ID", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/subscriptions/11120",
+					"http://localhost:8181/af/v1/subscriptions/11120",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -401,7 +401,7 @@ var _ = Describe("AF", func() {
 			Specify("INVALID GET SUBSCRIPTION 501", func() {
 
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/subscriptions/11111",
+					"http://localhost:8181/af/v1/subscriptions/11111",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -441,7 +441,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/subscriptions/11113",
+					"http://localhost:8181/af/v1/subscriptions/11113",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -464,7 +464,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/subscriptions/11120",
+					"http://localhost:8181/af/v1/subscriptions/11120",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -487,7 +487,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/subscriptions/11111",
+					"http://localhost:8181/af/v1/subscriptions/11111",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -511,7 +511,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/subscriptions/11111",
+					"http://localhost:8181/af/v1/subscriptions/11111",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -551,7 +551,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPatch,
-					"http://localhost:8080/af/v1/subscriptions/11112",
+					"http://localhost:8181/af/v1/subscriptions/11112",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -574,7 +574,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPatch,
-					"http://localhost:8080/af/v1/subscriptions/11120",
+					"http://localhost:8181/af/v1/subscriptions/11120",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -597,7 +597,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPatch,
-					"http://localhost:8080/af/v1/subscriptions/11111",
+					"http://localhost:8181/af/v1/subscriptions/11111",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -617,7 +617,7 @@ var _ = Describe("AF", func() {
 			Specify("DELETE Subcription 01", func() {
 
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/subscriptions/11111",
+					"http://localhost:8181/af/v1/subscriptions/11111",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -630,7 +630,7 @@ var _ = Describe("AF", func() {
 
 			Specify("DELETE Subcription 02", func() {
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/subscriptions/11112",
+					"http://localhost:8181/af/v1/subscriptions/11112",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -642,7 +642,7 @@ var _ = Describe("AF", func() {
 			})
 			Specify("DELETE Subcription 03", func() {
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/subscriptions/11113",
+					"http://localhost:8181/af/v1/subscriptions/11113",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -654,7 +654,7 @@ var _ = Describe("AF", func() {
 			})
 			Specify("DELETE Subcription 04", func() {
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/subscriptions/11114",
+					"http://localhost:8181/af/v1/subscriptions/11114",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -668,7 +668,7 @@ var _ = Describe("AF", func() {
 			Specify("INVALID DELETE SUBSCRIPTION 501", func() {
 
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/subscriptions/11114",
+					"http://localhost:8181/af/v1/subscriptions/11114",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -710,7 +710,7 @@ var _ = Describe("AF", func() {
 					By("Preparing request")
 					reqBodyBytes := bytes.NewReader(reqBody)
 					req, err := http.NewRequest(http.MethodPost,
-						"http://localhost:8080/af/v1/subscriptions",
+						"http://localhost:8181/af/v1/subscriptions",
 						reqBodyBytes)
 					Expect(err).ShouldNot(HaveOccurred())
 
@@ -846,7 +846,7 @@ var _ = Describe("AF", func() {
 
 			Specify("DELETE Subcription 01", func() {
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/subscriptions/11111",
+					"http://localhost:8181/af/v1/subscriptions/11111",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -863,7 +863,7 @@ var _ = Describe("AF", func() {
 			Specify("Read all PFD transactions", func() {
 
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -881,7 +881,7 @@ var _ = Describe("AF", func() {
 			Specify("Read all PFD transactions", func() {
 
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -926,7 +926,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -952,7 +952,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -978,7 +978,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1004,7 +1004,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1030,7 +1030,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1074,7 +1074,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1088,7 +1088,7 @@ var _ = Describe("AF", func() {
 				resBodyBytes := bytes.NewReader(resBody)
 				header := make(http.Header)
 				header.Set("Location",
-					"http://localhost:8080/af/v1/pfd/transactions/10000")
+					"http://localhost:8181/af/v1/pfd/transactions/10000")
 				httpclient :=
 					testingAFClient(func(req *http.Request) *http.Response {
 						// Test request parameters
@@ -1122,7 +1122,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1136,7 +1136,7 @@ var _ = Describe("AF", func() {
 				resBodyBytes := bytes.NewReader(resBody)
 				header := make(http.Header)
 				header.Set("Location",
-					"http://localhost:8080/af/v1/pfd/transactions/10000")
+					"http://localhost:8181/af/v1/pfd/transactions/10000")
 				httpclient :=
 					testingAFClient(func(req *http.Request) *http.Response {
 						// Test request parameters
@@ -1168,7 +1168,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPost,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1206,7 +1206,7 @@ var _ = Describe("AF", func() {
 			Specify("Read all PFD transactions", func() {
 
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1221,7 +1221,7 @@ var _ = Describe("AF", func() {
 			Specify("Read all PFD transactions", func() {
 				By("sending wrong url")
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v2/pfd/transactions",
+					"http://localhost:8181/af/v2/pfd/transactions",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1236,7 +1236,7 @@ var _ = Describe("AF", func() {
 
 			Specify("DECODE error in GET ALL", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1271,7 +1271,7 @@ var _ = Describe("AF", func() {
 
 			Specify("SELF LINK MISSING IN GET ALL", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1306,7 +1306,7 @@ var _ = Describe("AF", func() {
 
 			Specify("SELF APP LINK MISSING IN GET ALL", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions",
+					"http://localhost:8181/af/v1/pfd/transactions",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1344,7 +1344,7 @@ var _ = Describe("AF", func() {
 		Context("PFD transaction ID GET", func() {
 			Specify("", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions/10000",
+					"http://localhost:8181/af/v1/pfd/transactions/10000",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1359,7 +1359,7 @@ var _ = Describe("AF", func() {
 
 			Specify("SELF LINK MISIING in GET", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions/10000",
+					"http://localhost:8181/af/v1/pfd/transactions/10000",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1394,7 +1394,7 @@ var _ = Describe("AF", func() {
 
 			Specify("SELF LINK MISIING in APP", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions/10000",
+					"http://localhost:8181/af/v1/pfd/transactions/10000",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1428,7 +1428,7 @@ var _ = Describe("AF", func() {
 
 			Specify("DECODE error in PFD GET", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions/10000",
+					"http://localhost:8181/af/v1/pfd/transactions/10000",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1463,7 +1463,7 @@ var _ = Describe("AF", func() {
 
 			Specify("INVALID GET PFD TRANS", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions/11000",
+					"http://localhost:8181/af/v1/pfd/transactions/11000",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1488,7 +1488,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/pfd/transactions/10000",
+					"http://localhost:8181/af/v1/pfd/transactions/10000",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1511,7 +1511,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/pfd/transactions/10000",
+					"http://localhost:8181/af/v1/pfd/transactions/10000",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1552,7 +1552,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/pfd/transactions/10000",
+					"http://localhost:8181/af/v1/pfd/transactions/10000",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1593,7 +1593,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/pfd/transactions/10000",
+					"http://localhost:8181/af/v1/pfd/transactions/10000",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1616,7 +1616,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/pfd/transactions/10000",
+					"http://localhost:8181/af/v1/pfd/transactions/10000",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1640,7 +1640,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/pfd/transactions/10000",
+					"http://localhost:8181/af/v1/pfd/transactions/10000",
 					reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1679,7 +1679,7 @@ var _ = Describe("AF", func() {
 			Specify("DELETE PFD Transaction 02", func() {
 
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/pfd/transactions/10001",
+					"http://localhost:8181/af/v1/pfd/transactions/10001",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1692,7 +1692,7 @@ var _ = Describe("AF", func() {
 			Specify("INVALID DELETE PFD Transaction 10", func() {
 
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/pfd/transactions/11000",
+					"http://localhost:8181/af/v1/pfd/transactions/11000",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1706,7 +1706,7 @@ var _ = Describe("AF", func() {
 			Specify("INVALID DELETE PFD Transaction 400", func() {
 
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/pfd/transactions/11000",
+					"http://localhost:8181/af/v1/pfd/transactions/11000",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1737,7 +1737,7 @@ var _ = Describe("AF", func() {
 			Specify("INVALID DELETE PFD Transaction 451", func() {
 
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/pfd/transactions/11000",
+					"http://localhost:8181/af/v1/pfd/transactions/11000",
 					nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1770,7 +1770,7 @@ var _ = Describe("AF", func() {
 		Context("PFD transaction Application GET", func() {
 			Specify("", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1785,7 +1785,7 @@ var _ = Describe("AF", func() {
 
 			Specify("INVALID GET PFD TRANS 10000 and app10", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app10", nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1800,7 +1800,7 @@ var _ = Describe("AF", func() {
 
 			Specify("PFD TRANS GET SELF APP LINK MISSING", func() {
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1834,7 +1834,7 @@ var _ = Describe("AF", func() {
 			Specify("DECODE error in PFD APP GET", func() {
 
 				req, err := http.NewRequest(http.MethodGet,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1880,7 +1880,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1904,7 +1904,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1928,7 +1928,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1952,7 +1952,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -1993,7 +1993,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPut,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -2039,7 +2039,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPatch,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -2063,7 +2063,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPatch,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -2087,7 +2087,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPatch,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -2111,7 +2111,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPatch,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -2152,7 +2152,7 @@ var _ = Describe("AF", func() {
 				By("Preparing request")
 				reqBodyBytes := bytes.NewReader(reqBody)
 				req, err := http.NewRequest(http.MethodPatch,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", reqBodyBytes)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -2190,7 +2190,7 @@ var _ = Describe("AF", func() {
 		Context("PFD transaction Application DELETE", func() {
 			Specify("", func() {
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -2205,7 +2205,7 @@ var _ = Describe("AF", func() {
 
 			Specify("INVALID DELETE TRANSACTION APPLICATION", func() {
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app10", nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
@@ -2221,7 +2221,7 @@ var _ = Describe("AF", func() {
 			Specify("INVALID DELETE PFD APP 451", func() {
 
 				req, err := http.NewRequest(http.MethodDelete,
-					"http://localhost:8080/af/v1/pfd/transactions/10000/"+
+					"http://localhost:8181/af/v1/pfd/transactions/10000/"+
 						"applications/app1", nil)
 				Expect(err).ShouldNot(HaveOccurred())
 
