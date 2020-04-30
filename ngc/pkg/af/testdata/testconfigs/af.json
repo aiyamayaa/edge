@@ -2,7 +2,7 @@
     "AfId": "1",
     "LocationPrefixPfd": "/af/v1/pfd/",
     "ServerConfig": {
-        "CNCAEndpoint": ":8080",
+        "CNCAEndpoint": ":8181",
         "Hostname": "localhost",
         "NotifPort": ":8081",
         "UIEndpoint": "http://localhost:3020",

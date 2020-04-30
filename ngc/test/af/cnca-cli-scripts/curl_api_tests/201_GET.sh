@@ -6,7 +6,7 @@ setup_dir=${PWD}
 
 set -e
 
-curl http://localhost:8080/AF/v1/subscriptions/11112
+curl http://localhost:8181/AF/v1/subscriptions/11112
 
 exit 0
 
